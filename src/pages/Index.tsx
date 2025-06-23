@@ -1,25 +1,20 @@
 
 import React from 'react';
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import Destinations from '../components/Destinations';
-import Experiences from '../components/Experiences';
-import About from '../components/About';
-import Contact from '../components/Contact';
-import Footer from '../components/Footer';
+import { Navigate } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
 const Index: React.FC = () => {
-  return (
-    <div className="min-h-screen">
-      <Navbar />
-      <Hero />
-      <Destinations />
-      <Experiences />
-      <About />
-      <Contact />
-      <Footer />
-    </div>
-  );
+  const { isAuthenticated, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-orange-600"></div>
+      </div>
+    );
+  }
+
+  return isAuthenticated ? <Navigate to="/" /> : <Navigate to="/login" />;
 };
 
 export default Index;
