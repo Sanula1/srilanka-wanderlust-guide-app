@@ -45,14 +45,14 @@ export const TempleManagement = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-3xl font-bold text-gray-900">Temple Management</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Temple Management</h2>
           <p className="text-gray-600 mt-1">Manage temple information and details</p>
         </div>
         <Button 
           onClick={() => setShowForm(true)}
-          className="bg-orange-600 hover:bg-orange-700"
+          className="w-full sm:w-auto bg-orange-600 hover:bg-orange-700 text-sm sm:text-base px-4 py-2 h-10 sm:h-auto"
         >
           <Plus className="h-4 w-4 mr-2" />
           Add Temple
@@ -79,34 +79,34 @@ export const TempleManagement = () => {
               <Card key={temple.id} className="hover:shadow-lg transition-shadow">
                 <CardHeader className="pb-3">
                   <div className="flex items-start justify-between">
-                    <CardTitle className="text-lg text-orange-800">{temple.name}</CardTitle>
-                    <Badge variant="secondary">Active</Badge>
+                    <CardTitle className="text-base sm:text-lg text-orange-800">{temple.name}</CardTitle>
+                    <Badge variant="secondary" className="text-xs">Active</Badge>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <div>
-                    <p className="text-sm text-gray-500">Address</p>
-                    <p className="text-sm font-medium">{temple.address}</p>
+                    <p className="text-xs sm:text-sm text-gray-500">Address</p>
+                    <p className="text-xs sm:text-sm font-medium">{temple.address}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Contact</p>
-                    <p className="text-sm font-medium">{temple.contactNumber}</p>
+                    <p className="text-xs sm:text-sm text-gray-500">Contact</p>
+                    <p className="text-xs sm:text-sm font-medium">{temple.contactNumber}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Email</p>
-                    <p className="text-sm font-medium">{temple.email}</p>
+                    <p className="text-xs sm:text-sm text-gray-500">Email</p>
+                    <p className="text-xs sm:text-sm font-medium">{temple.email}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Website</p>
-                    <p className="text-sm font-medium text-blue-600">{temple.website}</p>
+                    <p className="text-xs sm:text-sm text-gray-500">Website</p>
+                    <p className="text-xs sm:text-sm font-medium text-blue-600">{temple.website}</p>
                   </div>
-                  <div className="flex space-x-2 pt-2">
-                    <Button size="sm" variant="outline" className="flex-1">
-                      <Edit className="h-3 w-3 mr-1" />
+                  <div className="flex flex-col sm:flex-row gap-2 pt-2">
+                    <Button size="sm" variant="outline" className="flex-1 text-xs sm:text-sm px-3 py-2 h-8 sm:h-9">
+                      <Edit className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                       Edit
                     </Button>
-                    <Button size="sm" variant="outline" className="text-red-600 hover:text-red-700">
-                      <Trash className="h-3 w-3" />
+                    <Button size="sm" variant="outline" className="flex-1 text-red-600 hover:text-red-700 text-xs sm:text-sm px-3 py-2 h-8 sm:h-9">
+                      <Trash className="h-3 w-3 sm:h-4 sm:w-4" />
                     </Button>
                   </div>
                 </CardContent>

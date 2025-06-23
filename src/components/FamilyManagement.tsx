@@ -53,12 +53,12 @@ export const FamilyManagement = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-3xl font-bold text-gray-900">Family Management</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Family Management</h2>
           <p className="text-gray-600 mt-1">Manage family information and members</p>
         </div>
-        <Button className="bg-purple-600 hover:bg-purple-700">
+        <Button className="w-full sm:w-auto bg-purple-600 hover:bg-purple-700 text-sm sm:text-base px-4 py-2 h-10 sm:h-auto">
           <Plus className="h-4 w-4 mr-2" />
           Add Family
         </Button>
@@ -84,33 +84,33 @@ export const FamilyManagement = () => {
               <Card key={family.id} className="hover:shadow-lg transition-shadow">
                 <CardHeader className="pb-3">
                   <div className="flex items-start justify-between">
-                    <CardTitle className="text-lg text-purple-800 flex items-center">
+                    <CardTitle className="text-base sm:text-lg text-purple-800 flex items-center">
                       <Users className="h-4 w-4 mr-2" />
                       {family.familyName}
                     </CardTitle>
-                    <Badge variant="secondary">{family.memberCount} members</Badge>
+                    <Badge variant="secondary" className="text-xs">{family.memberCount} members</Badge>
                   </div>
                 </CardHeader>
                 <CardContent className="space-y-3">
                   <div>
-                    <p className="text-sm text-gray-500">Address</p>
-                    <p className="text-sm font-medium">{family.address}</p>
+                    <p className="text-xs sm:text-sm text-gray-500">Address</p>
+                    <p className="text-xs sm:text-sm font-medium">{family.address}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Village</p>
-                    <p className="text-sm font-medium">{family.village}</p>
+                    <p className="text-xs sm:text-sm text-gray-500">Village</p>
+                    <p className="text-xs sm:text-sm font-medium">{family.village}</p>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Phone className="h-3 w-3 text-gray-400" />
-                    <p className="text-sm font-medium">{family.telephone}</p>
+                    <p className="text-xs sm:text-sm font-medium">{family.telephone}</p>
                   </div>
-                  <div className="flex space-x-2 pt-2">
-                    <Button size="sm" variant="outline" className="flex-1">
-                      <Edit className="h-3 w-3 mr-1" />
+                  <div className="flex flex-col sm:flex-row gap-2 pt-2">
+                    <Button size="sm" variant="outline" className="flex-1 text-xs sm:text-sm px-3 py-2 h-8 sm:h-9">
+                      <Edit className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                       Edit
                     </Button>
-                    <Button size="sm" variant="outline" className="text-red-600 hover:text-red-700">
-                      <Trash className="h-3 w-3" />
+                    <Button size="sm" variant="outline" className="flex-1 text-red-600 hover:text-red-700 text-xs sm:text-sm px-3 py-2 h-8 sm:h-9">
+                      <Trash className="h-3 w-3 sm:h-4 sm:w-4" />
                     </Button>
                   </div>
                 </CardContent>
