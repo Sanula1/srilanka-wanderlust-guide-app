@@ -90,12 +90,12 @@ export const AssignmentManagement = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-3xl font-bold text-gray-900">Assignment Management</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Assignment Management</h2>
           <p className="text-gray-600 mt-1">Manage dana assignments and schedules</p>
         </div>
-        <Button className="bg-indigo-600 hover:bg-indigo-700">
+        <Button className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-sm sm:text-base px-4 py-2 h-10 sm:h-auto">
           <Plus className="h-4 w-4 mr-2" />
           Create Assignment
         </Button>
@@ -119,17 +119,17 @@ export const AssignmentManagement = () => {
           <div className="space-y-4">
             {filteredAssignments.map((assignment) => (
               <Card key={assignment.id} className="hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <div className="flex items-start justify-between">
+                <CardContent className="p-4 sm:p-6">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
                     <div className="flex-1 space-y-3">
-                      <div className="flex items-center space-x-4">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
                         <div className="flex items-center space-x-2">
                           <Users className="h-4 w-4 text-purple-600" />
-                          <span className="font-semibold text-purple-800">{assignment.family}</span>
+                          <span className="font-semibold text-purple-800 text-sm sm:text-base">{assignment.family}</span>
                         </div>
                         <Badge 
                           variant={assignment.isConfirmed ? "default" : "secondary"}
-                          className={assignment.isConfirmed ? "bg-green-100 text-green-800" : "bg-yellow-100 text-yellow-800"}
+                          className={`${assignment.isConfirmed ? "bg-green-100 text-green-800" : "bg-yellow-100 text-yellow-800"} text-xs`}
                         >
                           {assignment.isConfirmed ? (
                             <>
@@ -145,7 +145,7 @@ export const AssignmentManagement = () => {
                         </Badge>
                       </div>
                       
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs sm:text-sm">
                         <div>
                           <p className="text-gray-500">Temple</p>
                           <p className="font-medium">{assignment.temple}</p>
@@ -170,38 +170,46 @@ export const AssignmentManagement = () => {
                       </div>
                     </div>
                     
-                    <div className="flex space-x-2 ml-4">
+                    <div className="flex flex-row sm:flex-col lg:flex-row gap-2 w-full sm:w-auto">
                       {!assignment.isConfirmed && (
                         <Button 
                           size="sm" 
                           onClick={() => handleConfirmAssignment(assignment.id)}
-                          className="bg-green-600 hover:bg-green-700"
+                          className="flex-1 sm:flex-none bg-green-600 hover:bg-green-700 text-xs sm:text-sm px-3 py-2 h-8 sm:h-9"
                         >
                           Confirm
                         </Button>
                       )}
-                      <Button size="sm" variant="outline">
+                      <Button 
+                        size="sm" 
+                        variant="outline"
+                        className="flex-1 sm:flex-none text-xs sm:text-sm px-3 py-2 h-8 sm:h-9"
+                      >
                         Edit
                       </Button>
                       {canDelete && (
                         <AlertDialog>
                           <AlertDialogTrigger asChild>
-                            <Button size="sm" variant="outline" className="text-red-600 hover:text-red-700 hover:bg-red-50">
-                              <Trash2 className="h-4 w-4" />
+                            <Button 
+                              size="sm" 
+                              variant="outline" 
+                              className="flex-1 sm:flex-none text-red-600 hover:text-red-700 hover:bg-red-50 text-xs sm:text-sm px-2 sm:px-3 py-2 h-8 sm:h-9"
+                            >
+                              <Trash2 className="h-3 w-3 sm:h-4 sm:w-4" />
                             </Button>
                           </AlertDialogTrigger>
-                          <AlertDialogContent>
+                          <AlertDialogContent className="w-[90vw] max-w-md mx-auto">
                             <AlertDialogHeader>
-                              <AlertDialogTitle>Delete Assignment</AlertDialogTitle>
-                              <AlertDialogDescription>
+                              <AlertDialogTitle className="text-base sm:text-lg">Delete Assignment</AlertDialogTitle>
+                              <AlertDialogDescription className="text-sm">
                                 Are you sure you want to delete this assignment for {assignment.family}? This action cannot be undone.
                               </AlertDialogDescription>
                             </AlertDialogHeader>
-                            <AlertDialogFooter>
-                              <AlertDialogCancel>Cancel</AlertDialogCancel>
+                            <AlertDialogFooter className="flex flex-col sm:flex-row gap-2">
+                              <AlertDialogCancel className="w-full sm:w-auto text-sm">Cancel</AlertDialogCancel>
                               <AlertDialogAction 
                                 onClick={() => handleDeleteAssignment(assignment.id)}
-                                className="bg-red-600 hover:bg-red-700"
+                                className="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-sm"
                               >
                                 Delete
                               </AlertDialogAction>
