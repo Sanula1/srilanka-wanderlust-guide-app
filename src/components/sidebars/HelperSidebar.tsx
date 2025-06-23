@@ -1,5 +1,5 @@
 
-import { Calendar, BarChart3, LogOut } from "lucide-react";
+import { Calendar, BarChart3, LogOut, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useNavigate } from "react-router-dom";
 
@@ -14,6 +14,7 @@ export const HelperSidebar = ({ activeTab, setActiveTab }: HelperSidebarProps) =
   const menuItems = [
     { id: "dashboard", label: "Dashboard", icon: BarChart3 },
     { id: "assignments", label: "Dana Assignments", icon: Calendar },
+    { id: "members", label: "Member Management", icon: Users },
   ];
 
   const handleLogout = () => {

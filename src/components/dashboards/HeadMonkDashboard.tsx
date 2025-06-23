@@ -5,6 +5,8 @@ import { Dashboard } from "@/components/Dashboard";
 import { TempleManagement } from "@/components/TempleManagement";
 import { DanaManagement } from "@/components/DanaManagement";
 import { AssignmentManagement } from "@/components/AssignmentManagement";
+import { HelperManagement } from "@/components/HelperManagement";
+import { MemberManagement } from "@/components/MemberManagement";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
@@ -22,6 +24,10 @@ export const HeadMonkDashboard = () => {
         return <DanaManagement />;
       case "assignments":
         return <AssignmentManagement />;
+      case "helpers":
+        return <HelperManagement />;
+      case "members":
+        return <MemberManagement />;
       default:
         return <Dashboard />;
     }

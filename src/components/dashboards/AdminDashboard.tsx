@@ -7,6 +7,9 @@ import { VillageManagement } from "@/components/VillageManagement";
 import { FamilyManagement } from "@/components/FamilyManagement";
 import { DanaManagement } from "@/components/DanaManagement";
 import { AssignmentManagement } from "@/components/AssignmentManagement";
+import { HeadMonkManagement } from "@/components/HeadMonkManagement";
+import { HelperManagement } from "@/components/HelperManagement";
+import { MemberManagement } from "@/components/MemberManagement";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
@@ -28,6 +31,12 @@ export const AdminDashboard = () => {
         return <DanaManagement />;
       case "assignments":
         return <AssignmentManagement />;
+      case "headmonks":
+        return <HeadMonkManagement />;
+      case "helpers":
+        return <HelperManagement />;
+      case "members":
+        return <MemberManagement />;
       default:
         return <Dashboard />;
     }
